@@ -6,9 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier . --write",
+    "clean": "npm run lint; npm run prettier;",
+    "setup": "rm -rf node_modules; rm package-lock.json; npm run install",
+    "deploy:only": "firebase deploy --only hosting:gift-list-phperin",
+    "deploy": "npm run clean; npm run build; npm run deploy:only;"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/joy": "^5.0.0-beta.32",
+    "firebase": "^10.11.0",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.2.2"
